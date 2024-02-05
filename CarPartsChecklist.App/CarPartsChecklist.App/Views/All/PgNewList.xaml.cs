@@ -24,10 +24,21 @@ public partial class PgNewList : ContentPage
     [UnsupportedOSPlatform("maccatalyst")]
     private async void Entry_Unfocused(object sender, FocusEventArgs e)
     {
-        if (sender is not null && sender is Entry)
+        if (sender is null)
+        {
+            return;
+        }
+
+        if (sender is Entry)
         {
             Entry entry = (sender as Entry)!;
             await entry!.HideKeyboardAsync(CancellationToken.None);
+        }
+
+        if (sender is Editor)
+        {
+            Editor editor = (sender as Editor)!;
+            await editor!.HideKeyboardAsync(CancellationToken.None);
         }
     }
 }

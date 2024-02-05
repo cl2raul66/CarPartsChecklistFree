@@ -31,6 +31,14 @@
                         Unfocused="Entry_Unfocused" />
                 </Grid>
                 <Grid RowDefinitions="auto,auto" RowSpacing="8">
+                    <Label Text="Observaciones:" />
+                    <Editor
+                        Grid.Row="1"
+                        HeightRequest="48"
+                        Placeholder="Escriba aquí"
+                        Unfocused="Entry_Unfocused" />
+                </Grid>
+                <Grid RowDefinitions="auto,auto" RowSpacing="8">
                     <Grid ColumnDefinitions="*,auto" ColumnSpacing="8">
                         <Label Text="Imágenes:" VerticalOptions="Center" />
                         <Button Grid.Column="1" Text="Buscar" />
