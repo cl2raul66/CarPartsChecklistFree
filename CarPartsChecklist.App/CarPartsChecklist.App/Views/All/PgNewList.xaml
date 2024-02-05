@@ -3,15 +3,18 @@
     x:Class="CarPartsChecklist.App.Views.PgNewList"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:CarPartsChecklist.App.ViewModels"
     Title="Nueva lista"
+    x:DataType="vm:PgNewListViewModel"
     BackgroundColor="#bfA60405"
+    BindingContext="{vm:PgNewListViewModel}"
     Shell.NavBarIsVisible="False"
     Shell.PresentationMode="ModalAnimated">
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False" />
     </Shell.BackButtonBehavior>
 
-    <Frame Margin="16" VerticalOptions="End">
+    <Frame Margin="16" VerticalOptions="Start">
         <Grid RowDefinitions="auto,*,auto" RowSpacing="16">
             <Frame>
                 <Grid ColumnDefinitions="*,auto" ColumnSpacing="8">
@@ -20,12 +23,12 @@
             </Frame>
             <VerticalStackLayout Grid.Row="1" Spacing="16">
                 <Grid RowDefinitions="auto,auto" RowSpacing="8">
-                    <Label Text="Expediente:" />
-                    <Entry Grid.Row="1" Placeholder="Escriba aquí" />
-                </Grid>
-                <Grid RowDefinitions="auto,auto" RowSpacing="8">
                     <Label Text="Vehículo:" />
-                    <Entry Grid.Row="1" Placeholder="Escriba aquí" />
+                    <Entry
+                        x:Name="EntryStartFocus"
+                        Grid.Row="1"
+                        Placeholder="Escriba aquí"
+                        Unfocused="Entry_Unfocused" />
                 </Grid>
                 <Grid RowDefinitions="auto,auto" RowSpacing="8">
                     <Grid ColumnDefinitions="*,auto" ColumnSpacing="8">
@@ -52,6 +55,7 @@
                     <Button
                         Margin="{OnIdiom Default='0,0,8,0',
                                          Phone='0'}"
+                        Command="{Binding CancelCommand}"
                         FontSize="Caption"
                         Text="Cancelar" />
                 </FlexLayout>
