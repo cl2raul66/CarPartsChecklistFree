@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CarPartsChecklist.App.Views.PgPurchased"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Comprados">
+
+    <VerticalStackLayout>
+        <Label
+            FontFamily="icofont"
+            FontSize="Title"
+            HorizontalOptions="Center"
+            Text="{StaticResource SaleDiscount}"
+            VerticalOptions="Center" />
+        <Label
+            FontFamily="icofont"
+            FontSize="Title"
+            HorizontalOptions="Center"
+            Text="{StaticResource Pay}"
+            VerticalOptions="Center" />
+        <Label
+            FontFamily="icofont"
+            FontSize="128"
+            HorizontalOptions="Center"
+            Text="{StaticResource Cart}"
+            VerticalOptions="Center" />
+    </VerticalStackLayout>
+
+</ContentPage>

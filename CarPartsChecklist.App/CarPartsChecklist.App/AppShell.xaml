@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CarPartsChecklist.App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CarPartsChecklist.App"
+    xmlns:v="clr-namespace:CarPartsChecklist.App.Views"
+    Title="Car Parts Checklist"
+    Shell.FlyoutBehavior="{OnIdiom Default=Flyout,
+                                   Phone=Disabled}"
+    Shell.TabBarIsVisible="{OnIdiom Default=False,
+                                    Phone=True}">
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Todos">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="icofont"
+                    Glyph="{StaticResource Infinite}"
+                    Color="{OnIdiom Default={StaticResource Primary},
+                                    Phone={StaticResource Secondary}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate v:PgAll}" Route="PgAll" />
+        </Tab>
+        <Tab Title="Por comprar">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="icofont"
+                    Glyph="{StaticResource Cart}"
+                    Color="{OnIdiom Default={StaticResource Primary},
+                                    Phone={StaticResource Secondary}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate v:PgTobepurchased}" Route="PgTobepurchased" />
+        </Tab>
+        <Tab Title="Comprados">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="icofont"
+                    Glyph="{StaticResource CheckCircled}"
+                    Color="{OnIdiom Default={StaticResource Primary},
+                                    Phone={StaticResource Secondary}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate v:PgPurchased}" Route="PgPurchased" />
+        </Tab>
+        <!--<Tab Title="Settings">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="icofont"
+                    Glyph="{StaticResource UiSettings}"
+                    Color="{OnIdiom Desktop={StaticResource Secondary},
+                                    Tablet={StaticResource Secondary}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate v:PgSettings}" Route="PgSettings" />
+        </Tab>-->
+    </FlyoutItem>
+
+</Shell>

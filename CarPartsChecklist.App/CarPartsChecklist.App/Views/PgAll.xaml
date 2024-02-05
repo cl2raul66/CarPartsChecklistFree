@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CarPartsChecklist.App.Views.PgAll"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:CarPartsChecklist.App.ViewModels"
+    Title="Todos"
+    x:DataType="vm:PgAllViewModel"
+    Shell.NavBarIsVisible="False">
+
+    <Grid
+        Padding="16"
+        RowDefinitions="auto,*,auto"
+        RowSpacing="16">
+        <Frame>
+            <Grid ColumnDefinitions="*,auto" ColumnSpacing="8">
+                <Label FontSize="Caption" Text="Todos" />
+            </Grid>
+        </Frame>
+        <Frame Grid.Row="1">
+            <ScrollView>
+                <CollectionView SelectionMode="Single">
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <VerticalStackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Spacing="8"
+                                VerticalOptions="CenterAndExpand">
+                                <Label
+                                    FontFamily="icofont"
+                                    FontSize="48"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{StaticResource UiBlock}" />
+                                <Label
+                                    FontSize="Body"
+                                    HorizontalTextAlignment="Center"
+                                    Text="No hay elementos. " />
+                            </VerticalStackLayout>
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout
+                            HorizontalItemSpacing="8"
+                            Orientation="Horizontal"
+                            Span="4"
+                            VerticalItemSpacing="8" />
+                    </CollectionView.ItemsLayout>
+                </CollectionView>
+            </ScrollView>
+        </Frame>
+        <Frame Grid.Row="2">
+            <Grid RowDefinitions="auto,auto" RowSpacing="12">
+                <Label FontSize="Caption" Text="Accesos rápidos" />
+                <FlexLayout
+                    Grid.Row="1"
+                    AlignContent="Start"
+                    AlignItems="{OnIdiom Default='Start',
+                                         Phone='Stretch'}"
+                    Direction="{OnIdiom Default='Row',
+                                        Phone='Column'}"
+                    JustifyContent="Start">
+                    <Button
+                        Margin="{OnIdiom Default='0,0,8,0',
+                                         Phone='0,0,0,4'}"
+                        Command="{Binding GoToNewlistCommand}"
+                        FontSize="Caption"
+                        Text="Nueva lista" />
+                    <Button
+                        Margin="{OnIdiom Default='0,0,8,0',
+                                         Phone='0,0,0,4'}"
+                        FontSize="Caption"
+                        Text="Lista realizada" />
+                    <Button
+                        Margin="{OnIdiom Default='0,0,8,0',
+                                         Phone='0,0,0,4'}"
+                        FontSize="Caption"
+                        Text="Eliminar lista" />
+                    <Button
+                        Margin="{OnIdiom Default='0,0,8,0',
+                                         Phone='0,0,0,4'}"
+                        FontSize="Caption"
+                        Text="Compartir lista" />
+                    <Button
+                        Margin="{OnIdiom Default='0,0,8,0',
+                                         Phone='0,0,0,4'}"
+                        FontSize="Caption"
+                        Text="Agregar partes" />
+                </FlexLayout>
+            </Grid>
+        </Frame>
+    </Grid>
+
+</ContentPage>
